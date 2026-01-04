@@ -194,10 +194,17 @@
         }
 
         .card-front {
-            background: #ae0505;
             position: relative;
             justify-content: center;
             align-items: center;
+        }
+
+        .card-front.alfa-bank {
+            background: #ae0505;
+        }
+
+        .card-front.ural-bank {
+            background: #055e33;
         }
 
         .card-bank-label {
@@ -294,6 +301,10 @@
             align-items: center;
         }
 
+        .card-back.ural-bank-back {
+            background: #055e33;
+        }
+
         .contacts-content {
             text-align: center;
             color: #ffffff;
@@ -311,6 +322,12 @@
             font-size: 16px;
             margin: 10px 0;
             word-break: break-all;
+        }
+
+        .no-contacts {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
         }
 
         .add-card {
@@ -454,7 +471,7 @@
             <div class="cards-wrapper">
                 <div class="card-container">
                     <div class="card" id="mainCard">
-                        <div class="card-face card-front">
+                        <div class="card-face card-front alfa-bank">
                             <div class="card-bank-label">Альфа банк</div>
                             <div class="card-logo-section">
                                 <img src="https://www.finam.ru/Images/u/newsonline/201905/1.png" alt="Альфа Банк" class="card-bank-logo">
@@ -475,6 +492,33 @@
                                 <h3>Контакты</h3>
                                 <p>Telegram: @okswis</p>
                                 <p>Email: ila.traid@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-container">
+                    <div class="card" id="uralCard">
+                        <div class="card-face card-front ural-bank">
+                            <div class="card-bank-label">УралПромБанк</div>
+                            <div class="card-logo-section">
+                                <img src="https://optim.tildacdn.com/tild3461-3964-4536-b036-376361373063/-/resize/180x/-/format/webp/b6b31d13-09b6-4bc6-8.png.webp" alt="УралПромБанк" class="card-bank-logo">
+                            </div>
+                            <div class="card-center-content">
+                                <div class="card-brand">
+                                    FastDonate <span class="slash">/</span> Анонимные донаты
+                                </div>
+                                <div class="card-number">+79925174153</div>
+                            </div>
+                            <div class="card-goal">
+                                <div class="card-goal-label">сбор на: <span class="card-goal-name">«Машину»</span></div>
+                                <div class="card-goal-amount">500 000 ₽</div>
+                            </div>
+                        </div>
+                        <div class="card-face card-back ural-bank-back">
+                            <div class="contacts-content">
+                                <h3>Контакты</h3>
+                                <p class="no-contacts">Контактная информация отсутствует</p>
                             </div>
                         </div>
                     </div>
@@ -507,6 +551,7 @@
         });
 
         const mainCard = document.getElementById('mainCard');
+        const uralCard = document.getElementById('uralCard');
         const overlay = document.getElementById('overlay');
         const addCard = document.getElementById('addCard');
         const infoBtn = document.getElementById('infoBtn');
@@ -519,6 +564,10 @@
 
         mainCard.addEventListener('click', () => {
             mainCard.classList.toggle('flipped');
+        });
+
+        uralCard.addEventListener('click', () => {
+            uralCard.classList.toggle('flipped');
         });
 
         addCard.addEventListener('click', () => {
